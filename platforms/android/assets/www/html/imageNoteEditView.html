@@ -1,0 +1,63 @@
+<html>
+<!--
+      imageNoteEditView.html
+      @author Kerri Shotts
+      @version 1.0.0
+
+      Copyright (c) 2013 Packt Publishing
+      Permission is hereby granted, free of charge, to any person obtaining a copy of this
+      software and associated documentation files (the "Software"), to deal in the Software
+      without restriction, including without limitation the rights to use, copy, modify,
+      merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+      permit persons to whom the Software is furnished to do so, subject to the following
+      conditions:
+      The above copyright notice and this permission notice shall be included in all copies
+      or substantial portions of the Software.
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+      INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+      PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+      LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+      OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+      OTHER DEALINGS IN THE SOFTWARE.
+	  ************************************************************************************************
+	  Modification Log:
+	  *Name					Date						Description
+	  *Heidi Pearson		03/17/17					Line 38-44 added select dropdown list for the status option(followup, archive)
+	  *													with the new status option being disabled for user not to select.
+      *													added statusChanged id to be able to identify with the textNoteEditView.js file
+      *
+      *Heidi Pearson		03/22/17/17					Fixed status of new to be disabled for new option and the value being null.
+	  *													Added img push pin to display when user requests Follow-up and a file cabinet image
+														when user request archive. Status is being held now when user tries to go in to
+														update status.
+    -->
+
+<body>
+  <div class="ui-navigation-bar">
+    <div class="ui-title" contenteditable="true">%NOTE_NAME%</div>
+    <div class="ui-bar-button-group ui-align-left">
+      <div class="ui-bar-button ui-tint-color ui-back-button">%BACK%</div>
+    </div>
+	<div class="ui-bar-button-group ui-align-center"> <!--added dropdown for selection of status-->
+			<select id="statusChanged" class="ui-status-change">
+			<option value="" selected disabled>New</option>
+			<option value='<img src="img/push-pin-transparent.png" alt="push pin"/>'>Follow-up</option>
+			<option value='<img src="img/file-cabinet-transparent.png" alt="file cabinet"/>'>Archive</option>
+			</select>
+	</div>
+    <div class="ui-bar-button-group ui-align-right">
+      <div class="ui-bar-button ui-destructive-color">%DELETE_NOTE%</div>
+    </div>
+  </div>
+  <div class="ui-scroll-container ui-avoid-navigation-bar">
+    <div class="image-container">
+      <div class="ui-glyph ui-background-tint-color ui-glyph-camera outline"></div>
+      <div class="ui-glyph ui-background-tint-color ui-glyph-camera non-outline"></div>
+      <div class="ui-glyph ui-background-tint-color ui-glyph-share outline"></div>
+      <div class="ui-glyph ui-background-tint-color ui-glyph-share non-outline share-button"></div>
+    </div>
+    <textarea class="ui-text-box" onblur="this.classList.remove('editing');" onfocus="this.classList.add('editing');">%NOTE_CONTENTS%</textarea>
+  </div>
+</body>
+
+</html>
